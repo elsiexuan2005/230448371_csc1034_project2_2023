@@ -44,10 +44,9 @@ class Item:
             return self.__sell_price
 
     def __str__(self):
-        pass
-
+        return f"Item's name:{self.__name} \nCategory: {self.__category} \nPerishable: {self.__perishable} \nStock: {self.__stock} \nSelling price: {self.__sell_price})"
     def __repr__(self):
-        pass
+        return f"Item({self.__name},{self.__category},{self.__perishable},{self.__stock},{self.__sell_price})"
 
     def __eq__(self, other):
         pass
