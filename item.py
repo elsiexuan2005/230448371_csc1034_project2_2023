@@ -48,9 +48,19 @@ class Item:
     def __repr__(self):
         return f"Item({self.__name},{self.__category},{self.__perishable},{self.__stock},{self.__sell_price})"
 
-    def __eq__(self, other):
-        pass
-
     def __hash__(self):
-        pass
+        return hash((self.__name, self.__category, self.__perishable, self.__stock, self.__sell_price))
+
+    def __eq__(self, other):
+        print("Performing equality check")
+        if isinstance(other, Item):
+            return self.__name == other.__name and self.__category == other.__category and self.__perishable == other.__perishable and self.__stock == other.__stock and self.__sell_price == other.__sell_price
+        else:
+            return False
+
+
+
+
+
+
 
