@@ -5,10 +5,10 @@ class Item:
         self.__category = category
         self.__perishable = perishable
         self.__stock = stock
-        if self.__stock <= 0:
+        if self.__stock < 0:
             raise ValueError("Stock should be in positive value")
         self.__sell_price = sell_price
-        if self.__sell_price <= 0:
+        if self.__sell_price < 0:
             raise ValueError("Sell price should be in positive value")
 
 
