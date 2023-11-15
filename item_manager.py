@@ -1,10 +1,13 @@
 class ItemManager:
 
     def __init__(self, items=None):
-        pass
+        if items is None:
+            self.__items = []
+        else:
+            self.__items = items
 
     def get_items(self):
-        pass
+        return self.__items
 
     def __str__(self):
         pass

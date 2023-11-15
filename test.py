@@ -1,4 +1,5 @@
 from item import Item
+from item_manager import ItemManager
 
 my_item = Item("Bright", "Category", False, 66, 6.72)
 my_item_copy = Item("Bright", "Category", False, 66, 6.72)
@@ -21,5 +22,12 @@ try:
     my_item = Item("Bright", "Category", False, -66, 6.72)
 except ValueError as e:
     print(f"ValueError: {e}")
+
+# Test item_manager.py
+item_manager = ItemManager(my_item)
+print(item_manager.get_items())
+
+
+
 
 
