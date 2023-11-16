@@ -26,7 +26,12 @@ class ItemManager:
                 return f" {item} is added"
 
     def remove_item(self, item):
-        pass
+        if self.__items is not None:
+            if any(item == i for i in self.__items):
+                self.__items.remove(item)
+                return"The {item} is removed"
+            else:
+                return f"{item} is not in the list"
 
     def edit_item(self, old_item, new_item):
         pass

@@ -35,4 +35,8 @@ print()
 print(str(item_manager))
 print()
 print(repr(item_manager))
+print()
+# Test remove method
+print(item_manager.remove_item(my_item))
+print(item_manager.get_items()) # Should return empty list
 
