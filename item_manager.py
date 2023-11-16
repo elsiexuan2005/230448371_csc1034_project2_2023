@@ -1,19 +1,29 @@
 class ItemManager:
 
     def __init__(self, items=None):
-        pass
+        if items is None:
+            self.__items = []
+        else:
+            self.__items = items
 
     def get_items(self):
-        pass
+        return self.__items
 
     def __str__(self):
-        pass
+        return f"Detail of the items: \n{self.__items}"
 
     def __repr__(self):
-        pass
+        return f"Item({self.__items})"
 
     def add_item(self, item):
-        pass
+        if self.__items is None:
+            self.__items.append(item)
+        else:
+            if any(item == i for i in self.__items):
+                 return f"This item is already existed"
+            else:
+                self.__items.append(item)
+                return f" {item} is added"
 
     def remove_item(self, item):
         pass

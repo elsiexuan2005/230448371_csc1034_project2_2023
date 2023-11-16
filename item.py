@@ -11,7 +11,6 @@ class Item:
         if self.__sell_price < 0:
             raise ValueError("Sell price should be in positive value")
 
-
     def get_name(self):
         if not isinstance(self.__name, str):
             raise TypeError("Name should be in string")
@@ -31,11 +30,10 @@ class Item:
             return self.__perishable
 
     def get_stock(self):
-        if not isinstance (self.__stock, int):
+        if not isinstance(self.__stock, int):
             raise ValueError("Stock should be in integer")
         else:
             return self.__stock
-
 
     def get_sell_price(self):
         if not isinstance(self.__sell_price, float):
@@ -44,7 +42,8 @@ class Item:
             return self.__sell_price
 
     def __str__(self):
-        return f"Item's name:{self.__name} \nCategory: {self.__category} \nPerishable: {self.__perishable} \nStock: {self.__stock} \nSelling price: {self.__sell_price})"
+        return f" \nName:{self.__name} \nCategory: {self.__category} \nPerishable: {self.__perishable} \nStock: {self.__stock} \nSelling price: {self.__sell_price}"
+
     def __repr__(self):
         return f"Item({self.__name},{self.__category},{self.__perishable},{self.__stock},{self.__sell_price})"
 
@@ -57,10 +56,3 @@ class Item:
             return self.__name == other.__name and self.__category == other.__category and self.__perishable == other.__perishable and self.__stock == other.__stock and self.__sell_price == other.__sell_price
         else:
             return False
-
-
-
-
-
-
-
