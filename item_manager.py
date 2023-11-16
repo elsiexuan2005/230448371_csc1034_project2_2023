@@ -32,18 +32,27 @@ class ItemManager:
                 return"The {item} is removed"
             else:
                 return f"{item} is not in the list"
-
     def edit_item(self, old_item, new_item):
-        pass
-
+        edit = False
+        for i, item in enumerate(self.__items):
+            if item == old_item:
+                self.__items[i] = new_item
+                edit = True
+        return edit
     def search_by_category(self, category):
-        pass
+        for item in self.__items:
+            if item.get_category() == category:
+                return item
 
     def search_by_perishable(self, perishable):
-        pass
+        for item in self.__items:
+            if item.get_perishable() == perishable:
+                return item
 
     def search_by_sell_price(self, sell_price):
-        pass
+        for item in self.__items:
+            if item.get_sell_price() == sell_price:
+                return item
 
     def apply_discount_to_items(self, names, discount):
         pass

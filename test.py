@@ -26,11 +26,11 @@ print()
 print()
 # Test item_manager.py
 item_manager = ItemManager()
-print(item_manager.get_items()) # Returns an empty list
-print(item_manager.add_item(my_item)) # Test add_item method
+print(item_manager.get_items())  # Returns an empty list
+print(item_manager.add_item(my_item))  # Test add_item method
 print()
 # Duplication
-print("Is it existed?",item_manager.add_item(my_item_copy))#
+print("Is it existed?", item_manager.add_item(my_item_copy))  #
 print()
 print(str(item_manager))
 print()
@@ -38,5 +38,13 @@ print(repr(item_manager))
 print()
 # Test remove method
 print(item_manager.remove_item(my_item))
-print(item_manager.get_items()) # Should return empty list
-
+print(item_manager.get_items())  # Should return empty list
+# Test edit
+print(item_manager.add_item(my_item))
+print(item_manager.edit_item(my_item, other_item))
+print("Current item in the list", item_manager.get_items())
+print()
+# Test search method
+print(item_manager.search_by_category("Category"))  # Category
+print(item_manager.search_by_perishable(True))  # Perishable, return None
+print(item_manager.search_by_sell_price(6.72))  # Sell price
