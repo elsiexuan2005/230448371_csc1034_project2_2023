@@ -1,6 +1,7 @@
 from item import Item
 from item_manager import ItemManager
 
+
 # Examples for item
 my_item = Item("Bright", "Category", False, 66, 6.72)
 my_item_copy = Item("Bright", "Category", False, 66, 6.72)
@@ -52,3 +53,7 @@ print(item_manager.search_by_sell_price(6.72))  # Sell price
 print("Before applying discount", item_manager.get_items())
 print(item_manager.apply_discount_to_items("Bright",10))
 print("After applying discount",item_manager.get_items())
+print()
+# Load data from csv file
+print(item_manager.load_from_file("sample_data.csv"))
+print()

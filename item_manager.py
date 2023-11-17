@@ -1,3 +1,4 @@
+import csv
 class ItemManager:
 
     def __init__(self, items=None):
@@ -65,7 +66,11 @@ class ItemManager:
         pass
 
     def load_from_file(self, file_name):
-        pass
+        with open(file_name, 'r') as file:
+            csv_reader = csv.reader(file)
+            for row in csv_reader:
+                print(row)
+                self.__items.append(row)
 
     def save_to_file(self, file_name):
         pass
