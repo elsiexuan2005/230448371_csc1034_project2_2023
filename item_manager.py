@@ -1,4 +1,5 @@
 import csv
+from item import Item
 class ItemManager:
     def __init__(self, items=None):
         if items is None:
@@ -80,8 +81,27 @@ class ItemManager:
             csv_reader = csv.reader(file)
             next(csv_reader)
             for row in csv_reader:
-                print(row)
-                self.__items.append(row)
+                name, category, perishable, stock, sell_price = row
+                name = str(name)
+                category = str(category)
+                perishable = bool(perishable)
+                stock = int(stock)
+                sell_price = float(sell_price)
+                item = Item(name, category, perishable, stock, sell_price)
+                self.__items.append(item)
+                print(item)
 
     def save_to_file(self, file_name):
-        pass
+        with open(file_name, 'w') as file:
+            csv_writer = csv.writer(file)
+            for item in self.__items:
+                csv_writer.writerow(['Name', 'Category', 'Perishable', 'Stock', 'Sell_Price'])
+                csv_writer.writerow([
+                    item.get_name(),
+                    item.get_category(),
+                    item.get_perishable(),
+                    item.get_stock(),
+                    item.get_sell_price()
+                    ])
+            print(item)
+

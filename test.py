@@ -15,9 +15,14 @@ print(repr(my_item))
 print("Is it equal to each other?", my_item == my_item_copy)  # Should be true
 print("Is it equal to each other?", my_item == other_item1)  # Should be false
 
-# Exceptional case: negative values are not allowed in stock
+# Exceptional case: negative values are not allowed in stock and sell_price
 try:
     my_item = Item("Bright", "Category", False, -66, 6.72)
+except ValueError as e:
+    print(f"ValueError: {e}")
+print()
+try:
+    my_item = Item("Bright", "Category", False, 66, 6.72)
 except ValueError as e:
     print(f"ValueError: {e}")
 
@@ -70,6 +75,8 @@ print()
 # Load data from csv file
 print(item_manager.load_from_file("sample_data.csv"))
 print()
+# Save data to a new file
+print(item_manager.save_to_file("new_data.csv"))
 
 
 
