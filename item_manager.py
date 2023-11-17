@@ -78,6 +78,7 @@ class ItemManager:
     def load_from_file(self, file_name):
         with open(file_name, 'r') as file:
             csv_reader = csv.reader(file)
+            next(csv_reader)
             for row in csv_reader:
                 print(row)
                 self.__items.append(row)
