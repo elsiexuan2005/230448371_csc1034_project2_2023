@@ -1,5 +1,4 @@
 class Item:
-
     def __init__(self, name, category, perishable, stock, sell_price):
         self.__name = name
         self.__category = category
@@ -34,6 +33,9 @@ class Item:
             raise ValueError("Stock should be in integer")
         else:
             return self.__stock
+
+    def set_stock(self, stock):
+        self.__stock = stock
 
     def get_sell_price(self):
         if not isinstance(self.__sell_price, float):

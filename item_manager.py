@@ -1,6 +1,5 @@
 import csv
 class ItemManager:
-
     def __init__(self, items=None):
         if items is None:
             self.__items = []
@@ -63,7 +62,18 @@ class ItemManager:
                 item.set_selling_price(item.get_sell_price() * (1 - (discount / 100)))
 
     def purchase_available_items(self, names, is_member):
-        pass
+        cost = 0.0
+        for purchase_item in self.__items:
+            if purchase_item.get_name() in names:
+                cost += purchase_item.get_sell_price()
+                purchase_item.set_stock(purchase_item.get_stock() - 1)
+        if is_member is False:
+            return cost
+        else:
+            if cost >= 50.0:
+                return cost - (cost * 0.1)
+            else:
+                return cost - (cost * 0.05)
 
     def load_from_file(self, file_name):
         with open(file_name, 'r') as file:
