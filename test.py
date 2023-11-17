@@ -30,7 +30,7 @@ print(item_manager.get_items())  # Returns an empty list
 print(item_manager.add_item(my_item))  # Test add_item method
 print()
 # Duplication
-print("Is it existed?", item_manager.add_item(my_item_copy))  #
+print("Is it existed?", item_manager.add_item(my_item_copy))
 print()
 print(str(item_manager))
 print()
@@ -48,3 +48,7 @@ print()
 print(item_manager.search_by_category("Category"))  # Category
 print(item_manager.search_by_perishable(True))  # Perishable, return None
 print(item_manager.search_by_sell_price(6.72))  # Sell price
+# Test apply discount
+print("Before applying discount", item_manager.get_items())
+print(item_manager.apply_discount_to_items("Bright",10))
+print("After applying discount",item_manager.get_items())

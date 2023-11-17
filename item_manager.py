@@ -20,7 +20,7 @@ class ItemManager:
             self.__items.append(item)
         else:
             if any(item == i for i in self.__items):
-                 return f"This item is already existed"
+                return f"This item is already existed"
             else:
                 self.__items.append(item)
                 return f" {item} is added"
@@ -29,9 +29,10 @@ class ItemManager:
         if self.__items is not None:
             if any(item == i for i in self.__items):
                 self.__items.remove(item)
-                return"The {item} is removed"
+                return "The {item} is removed"
             else:
                 return f"{item} is not in the list"
+
     def edit_item(self, old_item, new_item):
         edit = False
         for i, item in enumerate(self.__items):
@@ -39,6 +40,7 @@ class ItemManager:
                 self.__items[i] = new_item
                 edit = True
         return edit
+
     def search_by_category(self, category):
         for item in self.__items:
             if item.get_category() == category:
@@ -55,7 +57,9 @@ class ItemManager:
                 return item
 
     def apply_discount_to_items(self, names, discount):
-        pass
+        for item in self.__items:
+            if item.get_name() in names:
+                item.set_selling_price(item.get_sell_price() * (1 - (discount / 100)))
 
     def purchase_available_items(self, names, is_member):
         pass

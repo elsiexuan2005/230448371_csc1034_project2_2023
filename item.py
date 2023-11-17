@@ -41,6 +41,9 @@ class Item:
         else:
             return self.__sell_price
 
+    def set_selling_price(self, selling_price):
+        self.__sell_price = selling_price
+
     def __str__(self):
         return f" \nName:{self.__name} \nCategory: {self.__category} \nPerishable: {self.__perishable} \nStock: {self.__stock} \nSelling price: {self.__sell_price}"
 
